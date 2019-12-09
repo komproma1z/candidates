@@ -10,7 +10,7 @@
             <div class="avatar-box"><img class='avatar-img' v-bind:src='candidate.photoUrl'></div>
             <v-card-text><strong>Candidate ID:</strong>  {{ candidate.id }}</v-card-text>
             <v-card-text><strong>Name:</strong> {{ candidate.firstName }}</v-card-text>
-            <v-card-text><strong>Surame:</strong> {{ candidate.lastName }}</v-card-text>
+            <v-card-text><strong>Surname:</strong> {{ candidate.lastName }}</v-card-text>
             <v-card-text><strong>Occupation:</strong> {{ candidate.jobTitle }}</v-card-text>    
             <v-card-actions>
                 <v-spacer></v-spacer>
@@ -44,7 +44,7 @@ export default {
     .avatar-box {
         width: 150px;
         height: 150px;
-        margin: 15px 0;
+        margin: 10px 0 25px 0;
         border-radius: 50%;
     }
 
@@ -58,7 +58,8 @@ export default {
         border-radius: 20px;
     }
 
-    .v-cart__text {
+    .v-card__text {
         font-size: 1rem;
+        padding-left: 0 !important;
     }
 </style>
