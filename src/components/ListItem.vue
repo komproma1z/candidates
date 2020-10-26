@@ -1,6 +1,6 @@
 <template>
     <div class='list-item'>
-        <div class="avatar-box"><img class='avatar-img' v-bind:src='candidate.photoUrl'></div>
+        <div class="avatar-box"><img class='avatar-img' v-bind:src='candidate.photo'></div>
         <span class="first-name">{{ candidate.firstName }}</span>
         <span class="surname">{{ candidate.lastName }}</span>
         <span class="job-title">{{ candidate.jobTitle }}</span>

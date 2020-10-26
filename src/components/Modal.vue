@@ -7,7 +7,7 @@
             <v-card-title class="card-title">
                 <h2>Candidate profile</h2>
             </v-card-title>
-            <div class="avatar-box"><img class='avatar-img' v-bind:src='candidate.photoUrl'></div>
+            <div class="avatar-box"><img class='avatar-img' v-bind:src='candidate.photo'></div>
             <v-card-text><strong>Candidate ID:</strong>  {{ candidate.id }}</v-card-text>
             <v-card-text><strong>Name:</strong> {{ candidate.firstName }}</v-card-text>
             <v-card-text><strong>Surname:</strong> {{ candidate.lastName }}</v-card-text>

@@ -1,6 +1,6 @@
 <template>
     <div class="list-wrapper">
-        <div class="list" v-for='candidate in filteredByID' v-bind:key='candidate.id'>
+        <div class="list" v-for='candidate in sortByName' v-bind:key='candidate.id'>
             <ListItem v-bind:candidate='candidate'/>
         </div>
     </div>
@@ -8,7 +8,6 @@
 
 <script>
 import ListItem from './ListItem';
-import axios from 'axios';
 
 export default {
     name: 'List',
@@ -17,7 +16,20 @@ export default {
     },
     data() {
         return {
-            candidates: []
+            candidates: [
+                {"id": 1, "firstName": "James", "lastName": "Coombs", "jobTitle": "Software Engeineer", "photo": require('@/assets/user-placeholder.jpg')},
+                {"id": 2, "firstName": "Frank", "lastName": "Dalton", "jobTitle": "Designer", "photo": require('@/assets/user-placeholder.jpg')},
+                {"id": 3, "firstName": "Stephen", "lastName": "Kendall", "jobTitle": "Software Engeineer", "photo": require('@/assets/user-placeholder.jpg')},
+                {"id": 4, "firstName": "Christin", "lastName": "Badger", "jobTitle": "Designer", "photo": require('@/assets/user-placeholder.jpg')},
+                {"id": 5, "firstName": "Kate", "lastName": "Anstey", "jobTitle": "Designer", "photo": require('@/assets/user-placeholder.jpg')},
+                {"id": 6, "firstName": "Cyrill", "lastName": "Enfield", "jobTitle": "Designer", "photo": require('@/assets/user-placeholder.jpg')},
+                {"id": 7, "firstName": "Alex", "lastName": "Manley", "jobTitle": "Software Engeineer", "photo": require('@/assets/user-placeholder.jpg')},
+                {"id": 8, "firstName": "John", "lastName": "Lewis", "jobTitle": "Designer", "photo": require('@/assets/user-placeholder.jpg')},
+                {"id": 9, "firstName": "Brad", "lastName": "Hackney", "jobTitle": "Designer", "photo": require('@/assets/user-placeholder.jpg')},
+                {"id": 10, "firstName": "Matthew", "lastName": "Marleigh", "jobTitle": "Designer", "photo": require('@/assets/user-placeholder.jpg')},
+                {"id": 11, "firstName": "Fin", "lastName": "Chatham", "jobTitle": "Software Engeineer", "photo": require('@/assets/user-placeholder.jpg')},
+                {"id": 12, "firstName": "Andrew", "lastName": "Kekw", "jobTitle": "Designer", "photo": require('@/assets/user-placeholder.jpg')},
+            ]
         }
     },
     methods: {
@@ -25,14 +37,9 @@ export default {
             prompt(this.candidates);
         }
     },
-    created() {
-        axios.get('http://localhost:8080/users/v1/get_users')
-            .then(res => this.candidates = res.data)
-            .catch(err => err);
-    },
     computed: {
-        filteredByID() {
-            return this.candidates.filter(candidate => candidate.id % 2 === 0);
+        sortByName() {
+            return this.candidates.map(person => person).sort((a, b) => a.firstName - b.firstName);
         }
     }
 }
