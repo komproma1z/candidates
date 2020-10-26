@@ -39,7 +39,7 @@ export default {
     },
     computed: {
         sortByName() {
-            return this.candidates.map(person => person).sort((a, b) => a.firstName - b.firstName);
+            return this.candidates.map(person => person).sort((a, b) => a.firstName.localeCompare(b.firstName));
         }
     }
 }
